@@ -1,0 +1,371 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.loetech.camerabeautify.Activity.CameraWithFilterActivity">
+
+    <RelativeLayout
+        android:id="@+id/idrl"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <com.loetech.camerabeautify.camfilter.widget.LuoGLCameraView
+            android:id="@+id/glsurfaceview_camera"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+        <LinearLayout
+            android:id="@+id/header_layout"
+            style="@style/header_layout_size"
+            android:layout_gravity="center_horizontal"
+            android:background="@color/transparent_white"
+            android:gravity="center_horizontal"
+            android:orientation="horizontal"
+            android:padding="5dp">
+
+            <LinearLayout style="@style/llt_menu_item">
+
+                <ImageView
+                    android:id="@+id/btn_more"
+                    style="@style/header_layout_icon_size"
+                    android:src="@drawable/icon_more" />
+            </LinearLayout>
+
+            <LinearLayout style="@style/llt_menu_item">
+
+                <ImageView
+                    android:id="@+id/img_main_timer"
+                    style="@style/header_layout_icon_size"
+                    android:src="@drawable/icon_timer_normal" />
+            </LinearLayout>
+
+
+            <LinearLayout style="@style/llt_menu_item">
+
+                <ImageView
+                    android:id="@+id/btn_touch"
+                    style="@style/header_layout_icon_size"
+                    android:src="@drawable/icon_touch_enble" />
+
+            </LinearLayout>
+
+
+            <LinearLayout style="@style/llt_menu_item">
+
+                <ImageView
+                    android:id="@+id/btn_camera_switch"
+                    style="@style/header_layout_icon_size"
+                    android:src="@drawable/icon_switch_camera" />
+
+            </LinearLayout>
+
+
+        </LinearLayout>
+
+
+        <LinearLayout
+
+            android:id="@+id/llt_main_timer_col"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/header_layout"
+            android:background="@drawable/rectanguler_shape"
+            android:orientation="horizontal"
+            android:padding="6.5dp"
+            android:visibility="gone">
+
+            <LinearLayout
+                android:id="@+id/llt_main_timer_normal"
+                style="@style/llt_menu_item">
+
+                <ImageView
+                    android:id="@+id/img_main_timer_normal"
+                    style="@style/img_main_item"
+                    android:src="@drawable/icon_timer_normal_white" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/llt_main_timer_three"
+                style="@style/llt_menu_item">
+
+                <ImageView
+                    android:id="@+id/img_main_timer_three"
+                    style="@style/img_main_item"
+                    android:src="@drawable/icon_timer_three_white" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/llt_main_timer_five"
+                style="@style/llt_menu_item">
+
+                <ImageView
+                    android:id="@+id/img_main_timer_five"
+                    style="@style/img_main_item"
+                    android:src="@drawable/icon_timer_five_white" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/llt_main_timer_ten"
+                style="@style/llt_menu_item">
+
+                <ImageView
+                    android:id="@+id/img_main_timer_ten"
+                    style="@style/img_main_item"
+                    android:src="@drawable/icon_timer_ten_white" />
+            </LinearLayout>
+
+
+        </LinearLayout>
+
+
+        <LinearLayout
+
+            android:id="@+id/idOnTouch"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/llt_main_face_seekbar"
+            android:layout_below="@+id/llt_main_timer_col"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:visibility="gone">
+
+
+        </LinearLayout>
+
+        <include
+
+            android:id="@+id/layout_dev_info"
+            layout="@layout/dev_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/header_layout"
+            android:layout_marginBottom="80dp"
+            android:visibility="gone" />
+
+        <include
+
+            android:id="@+id/layout_about"
+            layout="@layout/activity_about_app"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/header_layout"
+            android:layout_marginBottom="80dp"
+            android:visibility="gone" />
+
+
+        <LinearLayout
+
+            android:id="@+id/idtiminglayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/llt_main_face_seekbar"
+            android:layout_below="@+id/llt_main_timer_col"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:visibility="gone">
+
+
+            <TextView
+                android:id="@+id/idshowtime"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:text="Time"
+                android:textSize="100sp"></TextView>
+
+        </LinearLayout>
+
+
+        <LinearLayout
+
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_above="@+id/llt_main_face_seekbar"
+            android:layout_weight="1"
+            android:gravity="center_vertical">
+
+            <SeekBar
+                android:id="@+id/skb_main_scale"
+                android:layout_width="match_parent"
+                android:layout_height="20dp"
+                android:progressDrawable="@drawable/back_seekbar_progress"
+                android:rotation="270"
+                android:thumb="@drawable/back_seekbar_thumb"
+                android:visibility="gone" />
+        </LinearLayout>
+
+        <LinearLayout
+
+            android:id="@+id/llt_main_face_seekbar"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_above="@+id/llt_main_beauty_col"
+            android:gravity="center_vertical">
+
+            <SeekBar
+                android:id="@+id/skb_main_face"
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:progressDrawable="@drawable/back_seekbar_progress"
+                android:thumb="@drawable/back_seekbar_thumb" />
+        </LinearLayout>
+
+        <LinearLayout
+
+            android:id="@+id/llt_main_beauty_col"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_above="@id/mOtherMenu"
+            android:background="@drawable/rectanguler_shape"
+            android:orientation="horizontal"
+            android:padding="6.5dp">
+
+            <LinearLayout
+                android:id="@+id/llt_main_smooth"
+                style="@style/llt_menu_item">
+
+                <ImageView
+                    android:id="@+id/img_main_smooth"
+                    style="@style/img_main_item"
+                    android:src="@drawable/ico_smoothly" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/llt_main_white"
+                style="@style/llt_menu_item">
+
+                <ImageView
+                    android:id="@+id/img_main_white"
+                    style="@style/img_main_item"
+                    android:src="@drawable/ico_whitening" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/llt_main_slimming"
+                style="@style/llt_menu_item">
+
+                <ImageView
+                    android:id="@+id/img_main_slimming"
+                    style="@style/img_main_item"
+                    android:src="@drawable/ico_slimming" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/llt_main_big_eye"
+                style="@style/llt_menu_item">
+
+                <ImageView
+                    android:id="@+id/img_main_big_eye"
+                    style="@style/img_main_item"
+                    android:src="@drawable/ico_bigeye" />
+            </LinearLayout>
+
+
+        </LinearLayout>
+
+
+        <LinearLayout
+
+            android:id="@+id/mOtherMenu"
+            style="@style/header_layout_size"
+            android:layout_alignParentBottom="true"
+            android:layout_gravity="bottom"
+            android:background="@color/transparent_white"
+            android:gravity="center_horizontal"
+            android:orientation="horizontal"
+
+            android:padding="5dp">
+
+            <LinearLayout style="@style/llt_menu_item">
+
+                <ImageView
+                    android:id="@+id/btn_gallery"
+                    style="@style/header_layout_icon_size"
+                    android:src="@drawable/icon_gallery" />
+
+            </LinearLayout>
+
+            <LinearLayout style="@style/llt_menu_item">
+
+                <ImageView
+                    android:id="@+id/btn_camera_filter"
+                    style="@style/header_layout_icon_size"
+                    android:src="@drawable/icon_filter" />
+            </LinearLayout>
+
+            <LinearLayout style="@style/llt_menu_item">
+
+                <ImageView
+                    android:id="@+id/btn_camera_shutter"
+                    style="@style/caemra_shutter_icon_size"
+                    android:src="@drawable/icon_camera" />
+
+            </LinearLayout>
+
+            <LinearLayout style="@style/llt_menu_item">
+
+                <ImageView
+                    android:id="@+id/btn_sticker"
+
+                    style="@style/header_layout_icon_size"
+                    android:src="@drawable/icon_sticker" />
+
+            </LinearLayout>
+
+            <LinearLayout style="@style/llt_menu_item">
+
+                <ImageView
+                    android:id="@+id/btn_camera_beauty"
+                    style="@style/header_layout_icon_size"
+                    android:src="@drawable/icon_beauti" />
+
+            </LinearLayout>
+
+
+        </LinearLayout>
+
+
+        <!--      Sticker-->
+        <androidx.recyclerview.widget.RecyclerView
+
+            android:id="@+id/mMenuView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_above="@id/mOtherMenu"
+            android:layout_marginBottom="7dp">
+
+        </androidx.recyclerview.widget.RecyclerView>
+
+
+        <include
+
+            android:id="@+id/layout_more"
+            layout="@layout/more_button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/header_layout"
+            android:visibility="gone" />
+
+        <include
+
+            android:id="@+id/layout_filter"
+            layout="@layout/filter_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_above="@id/mOtherMenu"
+
+            android:layout_gravity="center"
+            android:layout_marginBottom="7dp"
+            android:background="@android:color/transparent"
+            android:visibility="invisible" />
+
+
+        <!--</FrameLayout>-->
+
+    </RelativeLayout>
+
+</LinearLayout>
